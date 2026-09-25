@@ -26,6 +26,8 @@ public class SeleniumIntroduction {
 		Assert.assertEquals(driver.findElement(By.tagName("p")).getText(), "You are successfully logged in.");
         
         Assert.assertEquals(driver.findElement(By.xpath("//h2")).getText(), "Hello "+name+",");
+        driver.findElement(By.xpath("//button[text()='Log Out']")).click();
+        driver.close();
 	}
 
 }
