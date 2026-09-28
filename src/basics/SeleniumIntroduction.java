@@ -5,18 +5,20 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 
 public class SeleniumIntroduction {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		WebDriver driver = new ChromeDriver();
+//		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new EdgeDriver();
 		
 		String name = "rahul";
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		driver.manage().window().maximize();
+//		driver.manage().window().maximize();
 		String password = getPassword(driver);
 		driver.findElement(By.cssSelector(".go-to-login-btn")).click();
 		Thread.sleep(2000);
@@ -41,7 +43,7 @@ public class SeleniumIntroduction {
 		driver.findElement(By.xpath("//div/button[@class='reset-pwd-btn']")).click();
 		String passwordText = driver.findElement(By.cssSelector("form p")).getText();
 		String [] passwordArray = passwordText.split("'");
-		String [] passwordArray2 = passwordArray[1].split("'");
+		//String [] passwordArray2 = passwordArray[1].split("'");
 		String password = passwordArray[1].split("'")[0];
 		return password;
 	}
